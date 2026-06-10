@@ -1,0 +1,74 @@
+html,body,div,span,object,iframe,h1,
+h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,
+cite,code,del,dfn,em,img,ins,kbd,q,samp,small,
+strong,sub,sup,var,
+b,i,dl,dt,dd,ol,ul,li,
+fieldset,form,label,legend,table,caption,tbody,
+tfoot,thead,tr,th,td,
+article,aside,canvas,details,figcaption,figure,
+footer,header,hgroup,menu,nav,section,summary,
+time,mark,audio,video{
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  vertical-align: baseline;
+  background-color: transparent;
+}
+a {
+  text-decoration: none;
+}
+li {
+  list-style: none;
+}
+
+body {
+  height: 100vh;
+  background-color: #f1f4f6;
+}
+/* :root {
+  --text: #6b6375;
+  --text-h: #08060d;
+  --bg: #fff;
+  --border: #e5e4e7;
+  --accent: #aa3bff;
+
+  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
+  --mono: ui-monospace, Consolas, monospace;
+
+  font: 16px/1.5 var(--sans);
+  color: var(--text);
+  background: var(--bg);
+  color-scheme: light dark;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+} 
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text: #9ca3af;
+    --text-h: #f3f4f6;
+    --bg: #16171d;
+    --border: #2e303a;
+    --accent: #c084fc;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+*/
+
+#app {
+  min-height: 100vh;
+}
+.pagination-info {
+  padding: 10px 0;
+  background-color: #fff;
+  .el-pagination{
+    justify-content: end;
+  }
+}
+
