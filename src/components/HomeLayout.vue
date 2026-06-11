@@ -1,15 +1,17 @@
 
- <template>
+<template>
   <div class="common-layout">
     <el-container>
-        <el-aside>
-            <Sidebar />
-        </el-aside>
+      <el-aside width="200px">
+        <Sidebar />
+      </el-aside>
       <el-container>
         <el-header>
-            <Header />
+          <Header />
         </el-header>
-        <el-main>Main</el-main>
+        <el-main>
+          <router-view></router-view>
+        </el-main>
       </el-container>
     </el-container>
   </div>
@@ -22,7 +24,6 @@ import Header from './Header.vue'
 .common-layout {
   height: 100vh;
 }
-
 .el-container {
   height: 100%;
 }
@@ -32,21 +33,19 @@ import Header from './Header.vue'
   color: #333;
   line-height: 50px;
   height: 50px;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+  box-shadow: 0px 0px 1px 1px rgba(3, 3, 3, 0.1);
   border-bottom: 1px solid transparent;
 }
 
-
-
 .el-main {
-  background-color: #e9eef3;
+  background-color: #ffffff;
   color: #333;
   text-align: center;
   line-height: 160px;
 }
 .el-aside {
-  background-color: #232425;
-  color: white;
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
   line-height: 200px;
 }
 </style>
