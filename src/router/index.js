@@ -1,10 +1,10 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomeLayout from "../components/HomeLayout.vue";
-
+import { PieChart, ChatLineSquare, Message } from '@element-plus/icons-vue'
 
 const routes = [
   {
-    path:'/backend',
+    path:'/',
     component:HomeLayout,
     children:[
       {
@@ -12,7 +12,7 @@ const routes = [
         component:()=>import('@/views/dashboard.vue'),
         meta:{
           title:'数据分析',
-          icon:'PieChart'
+          icon: PieChart
         }
       },
       {
@@ -20,7 +20,7 @@ const routes = [
         component:()=>import('@/views/knowledge.vue'),
         meta:{
           title:'知识文章',
-          icon:'ChatLineSquare'
+          icon: ChatLineSquare
         }
       },
       {
@@ -28,7 +28,7 @@ const routes = [
         component:()=>import('@/views/consultations.vue'),
         meta:{
           title:'咨询记录',
-          icon:'Message'
+          icon: Message
         }
       }
     ]
@@ -41,4 +41,3 @@ const router = createRouter({
 })
 
 export default router
-

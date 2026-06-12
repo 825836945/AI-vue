@@ -31,21 +31,16 @@ import Header from './Header.vue'
 .el-header {
   background-color: #fff;
   color: #333;
-  line-height: 50px;
-  height: 50px;
+  line-height: 67px;
+  height: 67px;
   box-shadow: 0px 0px 1px 1px rgba(3, 3, 3, 0.1);
   border-bottom: 1px solid transparent;
 }
 
 .el-main {
-  background-color: #ffffff;
   color: #333;
-  text-align: center;
-  line-height: 160px;
 }
 .el-aside {
-  background-color: #ffffff;
   color: rgb(0, 0, 0);
-  line-height: 200px;
 }
 </style>
