@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomeLayout from "../components/HomeLayout.vue";
-import { PieChart, ChatLineSquare, Message } from '@element-plus/icons-vue'
+import { PieChart, ChatLineSquare, Message,User } from '@element-plus/icons-vue'
 
 const routes = [
   {
@@ -30,7 +30,15 @@ const routes = [
           title:'咨询记录',
           icon: Message
         }
-      }
+      },
+      {
+        path:'emotional',
+        component:()=>import('@/views/emotional.vue'),
+        meta:{
+          title:'情绪日志',
+          icon: User
+        }
+      },
     ]
   }
 ]
