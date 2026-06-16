@@ -1,12 +1,14 @@
 <template>
-    <el-aside width="200px">
+    <el-aside :width="isCollapse ? '64px' : '200px'" >
       <el-menu
+      :collapse="isCollapse"
+      :collapse-transition="false"
         default-active="2"
         class="menu-style"
       >      
         <div class="brand">
           <img :src="iconUrl" alt="logo" class="logo" />
-          <div class="info-card">
+          <div v-if="!isCollapse" class="info-card">
             <h1>心理健康AI助手</h1>
             <p>管理后台</p>
           </div>
@@ -21,10 +23,14 @@
     
 </template>
 <script setup>
+import { computed } from 'vue'
 import { useRouter } from 'vue-router'
 import iconUrl from '@/assets/images/robot.png'
+import { useAdminStore } from '@/stores/admin'
 
 const router = useRouter()
+const adminStore = useAdminStore()
+const isCollapse = computed(() => adminStore.isCollapse)
 const selectMenu = (key) => {
   router.push(key.index)
 }

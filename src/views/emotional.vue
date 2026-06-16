@@ -1,5 +1,10 @@
 <template>
   <div>
-    <h1>情感日志</h1>
+    <PageHead title="情感日志" >
+        
+    </PageHead>
   </div>
 </template>
+<script setup>
+import PageHead from '@/components/PageHead.vue'
+</script>
