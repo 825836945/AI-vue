@@ -5,6 +5,7 @@ import { PieChart, ChatLineSquare, Message,User } from '@element-plus/icons-vue'
 const routes = [
   {
     path:'/',
+    redirect:'/dashboard',
     component:HomeLayout,
     children:[
       {
