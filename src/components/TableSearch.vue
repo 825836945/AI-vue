@@ -1,26 +1,30 @@
 ﻿<template>
-  <el-row :gutter="24" >
-      <el-form :model="formData">
-        <template v-for="item in formItem" :key="item.prop">
-          <el-form-item :label="item.label" :prop="item.prop">
-            <component v-model="formData[item.prop]" :is="isComp(item.comp)" :placeholder="item.placeholder">
-              <template v-if="item.comp === 'select'">
-                <el-option label="全部" value="" />
-                <el-option v-for="opt in item.opptions" :label="opt.label" :value="opt.value" :key="opt.value" />
+      <el-form ref="ruleFormRef" :model="formData">
+            <el-row :gutter="24" >
+              <template v-for="item in formItemAttrs" :key="item.prop">
+                <el-col v-bind="item.col">
+                  <el-form-item :label="item.label" :prop="item.prop">
+                    <component v-model="formData[item.prop]" :is="isComp(item.comp)" :placeholder="item.placeholder">
+                      <template v-if="item.comp === 'select'">
+                        <el-option label="全部" value="" />
+                        <el-option v-for="opt in item.options" :label="opt.label" :value="opt.value" :key="opt.value" />
+                      </template>
+                    </component>
+                  </el-form-item>
+                </el-col>
+                
               </template>
-            </component>
-          </el-form-item>
-        </template>
+          </el-row>
+          <el-row>
+            <el-button type="primary" @click="handleSearch">查询</el-button>
+            <el-button @click="handleReset(ruleFormRef)">重置</el-button>
+          </el-row>
       </el-form>
-  </el-row>
-  <el-row>
-    <el-button type="primary" @click="handleSearch">查询</el-button>
-    <el-button @click="handleReset">重置</el-button>
-  </el-row>
+  
 </template>
 <script setup>
-import { reactive } from 'vue'
-defineProps({
+import { reactive,computed,ref } from 'vue'
+const props = defineProps({
   formItem: {
     type: Array,
     default: () => []
@@ -28,8 +32,16 @@ defineProps({
 })
 const emit = defineEmits(['search'])
 
+const formItemAttrs = computed(() => {
+  const {formItem} = props
+  formItem.forEach(item => {
+    item.col= { xs: 24, sm: 12, md: 8, lg: 6, xl: 6 } 
+  })
+  return formItem
+})
 
 //表单数据
+const ruleFormRef = ref()
 const formData = reactive({})
 const isComp = (comp) => {
   return {
@@ -42,8 +54,12 @@ const handleSearch = () => {
   console.log(formData)
   emit('search', formData)
 }
-const handleReset = () => {
-  console.log(formData)
+const handleReset = (formEl) => {
+  // console.log(formData)
+  //先重置表单，再触发查询
+  if(!formEl) return 
+  formEl.resetFields()
+  emit('search', formData)
 }
 
 </script>

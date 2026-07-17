@@ -3,6 +3,7 @@
         <PageHead title="知识文章" >
             <template #buttons>
                 <el-button type="primary">新增</el-button>
+                <el-button type="primary">编辑</el-button>
             </template>
         </PageHead>
         <TableSearch :formItem="formItem" @search="handleSearch"/>
@@ -24,7 +25,7 @@ const formItem = [
         label:'分类',
         prop:'categoryId',
         placeholder:'请选择分类',
-        opptions:[{
+        options:[{
             label:'心理健康基础',
             value:'1'
         },
@@ -36,7 +37,7 @@ const formItem = [
     }
 ]
 
-const handleSearch = () => {
+const handleSearch = (data) => {
     console.log(data)
 }
 </script>
